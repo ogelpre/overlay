@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="testing" status="unofficial">
+    <name>ogelpre</name>
+    <description>ebuilds made by ogelpre</description>
+    <homepage>https://github.com/ogelpre/overlay</homepage>
+    <owner>
+      <email>ogelpre@itfriend.de</email>
+      <name>Benedikt Neuffer</name>
+    </owner>
+    <source type="git">git://github.com/ogelpre/overlay.git</source>
+    <source type="git">https://github.com/ogelpre/overlay.git</source>
+  </repo>
+</repositories>
