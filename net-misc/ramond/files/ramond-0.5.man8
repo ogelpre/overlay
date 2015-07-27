@@ -1,0 +1,79 @@
+.TH ramond 8
+.SH NAME
+ramond \- IPv6 Router Advertisement MONitor Daemon
+.SH SYNOPSIS
+.B ramond
+.RI "[ \-c " configfile " ]"
+.PP
+.BR ramond " \-h"
+.SH "DESCRIPTION"
+.PP
+.RB "This manual page documents briefly the " ramond " command\&."
+.PP
+.BR ramond " is a daemon program monitoring IPv6 router advertisement packets\&."
+When an advert is reveived, a configurable action occurs\&.
+.PP
+.BR ramond " was designed to \(lqclear\(rq (by sending spoofed zero lifetime adverts) rogue routes sent by users running 6to4 gateways on a campus network\&."
+Actions are scriptable\&.
+Almost all the available information is passed to a script via environmental variables (see the
+.B ENVIRONMENT
+section for details)\&.
+.SH "OPTIONS"
+.PP
+The program follows the usual GNU command line syntax, without long options\&.
+A summary of options is included below\&.
+.TP
+.BI "\-c " configfile
+.RB "Sets the path to the " ramond " configuration file\&."
+Default is /etc/ramond\&.conf
+.TP
+.B \-h
+Show summary of options\&.
+.SH "FILES"
+.TP
+/etc/ramond\&.conf
+.RB "The system\-wide configuration file to control the behaviour of " ramond "\&. See " ramond.conf "(5) for further details\&."
+.SH "ENVIONMENT"
+.PP
+.RB "This section details the environment variables set by " ramond " when it runs a user-configured script\&."
+.TP
+.B PREFIX
+The advertised prefix, or null
+.TP
+.B PREFIX_LEN
+The length of the advertised prefix, or null
+.TP
+.B SOURCE_ADDR
+The IPv6 source address of the packet
+.TP
+.B SOURCE_MAC
+The MAC source address of the packet
+.TP
+.B INTERFACE
+The interface which the packet was received on
+.SH "SEE ALSO"
+.PP
+.BR ramond.conf (5)
+.SH "AUTHORS"
+.TP
+.BR "James Morse" " <\&morse_@users\&.sourceforge\&.net\&>"
+.RB "Wrote the " ramond " software\&."
+.TP
+.BR "Nicolas Dandrimont" " <\&nicolas\&.dandrimont@crans\&.org\&>"
+Wrote this manpage orginally for the Debian system\&.
+.TP
+.BR "Benedikt Neuffer" " <\&ogelpre@itfriend\&.de\&>"
+Modified this manpage for Gentoo Linux\&.
+.SH "COPYRIGHT"
+.br
+Copyright \(co 2010 Nicolas Dandrimont
+.br
+Copyright \(co 2015 Benedikt Neuffer
+.br
+.PP
+This manual page was orginally written for the Debian system (and may be used by others)\&.
+.PP
+Permission is granted to copy, distribute and/or modify this document under the terms of the usual 3\-clause BSD license\&.
+.PP
+On Gentoo systems, the complete text of the 3\-clause BSD license License can be found in {{{PORTDIR}}}/licenses \&.
+.sp

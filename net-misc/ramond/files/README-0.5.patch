@@ -1,0 +1,26 @@
+diff --git a/README b/README
+index 79a70b2..7477b1d 100644
+--- a/README
++++ b/README
+@@ -4,21 +4,6 @@
+ *                                                   *
+ *****************************************************
+ 
+-Installation:
+-	Type 'make' to compile.
+-
+-	Under debian etch you will need:
+-	* gcc and make !
+-	* libapr1-dev
+-	* libpcap0.8-dev
+-	* libxml2-dev
+-
+-	Under freebsd 7 you will need:
+-	* gcc and make !
+-	* devel/apr
+-	* net/libpcap
+-	* textproc/libxml2
+-
+ Recommended Hardware:
+ 	The author intended this program to run on one machine with two network
+ 	cards. One card (the monitoring interface) uses 802.1q and connects to

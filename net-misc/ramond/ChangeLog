@@ -1,0 +1,6 @@
+*ramond-0.5 (27 Jul 2015)
+
+  27 Jul 2015;  <bene@gentoo.org> +files/README-0.5.patch,
+  +files/ramond-0.5.conf.man5, +files/ramond-0.5.initd, +files/ramond-0.5.man8,
+  +metadata.xml, +ramond-0.5.ebuild:
+  ramond: initial import

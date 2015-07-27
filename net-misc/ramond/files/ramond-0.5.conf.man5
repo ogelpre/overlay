@@ -1,0 +1,155 @@
+.TH ramond\&.conf 5
+.SH NAME
+.RB "ramond.conf \- Configuration file for " ramond (8)
+.SH DESCRIPTION
+.PP
+.RB "This manual page documents briefly the " ramond\&.conf " configuration file\&."
+.PP
+.BR ramond\&.conf " is an XML file containing the rules for Router Advertisement processing by " ramond "(8)\&."
+.PP
+The rules are processed in the order they are defined in the file.
+.SH SYNTAX
+.PP
+.RB "One may refer to the DTD given in " /usr/share/doc/{{{P}}}/examples/ramond.conf.dtd "\&."
+.PP
+.RB "The root element, " <ramond> ", contains one optional attribute, " logfile ", giving the path to the logfile for the daemon\&."
+.PP
+.RB "This element may contain one or more " <mac\-list> "s, and one or more " <rule> "s\&."
+.PP
+.RB "The " <mac\-list> " must have a " name " attribute, and contains one or more " <entry> "elements\&."
+.PP
+.RB "The " <rule> " may contain a few attributes :"
+.TP
+.B prefix
+An IPv6 prefix used for matching RA packets
+.TP
+.B mac
+.RB "A " <mac\-list> " name used for matching source MAC addresses of the RA packets"
+.TP
+.B lifetime
+.RB "This attribute, when having a " \(lq0\(rq " value, is used for matching routes that are being cleared"
+.TP
+.B interface
+The interface which the RA packet came from
+.PP
+.RB "The " <rule> " may contain :"
+.RS 2
+.RB "\(bu one or more " <execute> " elements containing the path of the scripts to run when a packet is matched"
+.br
+.RB "\(bu a " <clear/> " element, so that the matched route will be cleared by " ramond "(8)"
+.br
+.RB "\(bu or no element, indicating an \(lqignore\(rq rule\&."
+.RE
+.SH ENVIRONMENT
+.RB "The environment variables the configured scripts are run with are listed in the " ramond "(8) manpage\&."
+.SH EXAMPLE CONFIGURATION FILE
+.PP
+.RB "Set the logfile to be " /var/log/ramond.log "\&."
+.PP
+.RS 1
+<ramond logfile="/var/log/ramond.log">
+.PP
+.RS 1
+.RB "Define a " router " mac\-list\&."
+.RE
+.PP
+.RS 2
+<mac\-list name="router">
+.RS 2
+<entry>00:11:22:33:44:55</entry>
+.br
+<entry>00:22:44:66:88:00</entry>
+.RE
+</mac\-list>
+.RE
+.PP
+.RS 1
+.RB "Define a rule checking if the " router " routes are being cleared\&."
+.RE
+.PP
+.RS 2
+<rule mac="router" lifetime="0">
+.RS 2
+<execute>/usr/local/sbin/routenotify route\-cleared</execute>
+.RE
+</rule>
+.RE
+.PP
+.RS 1
+.RB "Define a rule ignoring our " router " announcing routes for prefix " 2001:dead:cafe:babe::/52 "\&."
+.RE
+.PP
+.RS 2
+<rule mac="router" prefix="2001:dead:cafe:babe::/52">
+.RS 2
+<!-- do nothing -->
+.RE
+</rule>
+.RE
+.PP
+.RS 1
+.RB "Clear the 6to4 routes coming on interface " eth0 "\&."
+.RE
+.PP
+.RS 2
+<rule prefix="2002::/16" interface="eth0">
+.RS 2
+<execute>/usr/local/sbin/routenotify 6to4\-advertised</execute>
+.br
+<clear/>
+.RE
+</rule>
+.RE
+.PP
+.RS 1
+Match on all advertised prefixes
+.RE
+.PP
+.RS 2
+<rule prefix="::/0">
+.RS 2
+<execute>/usr/local/sbin/routenotify route\-advertised</execute>
+.RE
+</rule>
+.RE
+.PP
+.RS 1
+Match on all RA packets (even those not advertising a prefix)
+.RE
+.PP
+.RS 2
+<rule>
+.RS 2
+<execute>/usr/local/sbin/routenotify route\-advertised</execute>
+.RE
+</rule>
+.RE
+.PP
+</ramond>
+.RE
+.SH SEE ALSO
+.PP
+.BR ramond "(8), " /usr/share/doc/ramond/examples " for a sample " ramond\&.conf " and a sample processing script"
+.SH AUTHORS
+.TP
+.BR "James Morse" " <\&morse_@users\&.sourceforge\&.net\&>"
+.RB "Wrote the " ramond " software\&."
+.TP
+.BR "Nicolas Dandrimont" " <\&nicolas\&.dandrimont@crans\&.org\&>"
+Wrote this manpage orginally for the Debian system\&.
+.TP
+.BR "Benedikt Neuffer" " <\&ogelpre@itfriend\&.de\&>"
+Modified this manpage for Gentoo Linux\&.
+.SH "COPYRIGHT"
+.br
+Copyright \(co 2010 Nicolas Dandrimont
+.br
+Copyright \(co 2015 Benedikt Neuffer
+.br
+.PP
+This manual page was orginally written for the Debian system (and may be used by others)\&.
+.PP
+Permission is granted to copy, distribute and/or modify this document under the terms of the usual 3\-clause BSD license\&.
+.PP
+On Gentoo systems, the complete text of the 3\-clause BSD license License can be found in ${PORTDIR}/licenses \&.
+.sp

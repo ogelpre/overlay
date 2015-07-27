@@ -1,0 +1,31 @@
+#!/sbin/runscript
+# Copyright 2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="ramond is a scriptable IPv6 Router Advertisement Monitoring Daemon"
+
+ramond_config=${ramond_config:-/etc/ramond.conf}
+
+command="/usr/sbin/ramond"
+command_args="-c ${ramond_config}"
+pidfile=${pidfile:-/run/ramond.pid}
+user=${user:-root}
+group=${group:-root}
+
+depend() {
+        need net
+        use logger
+}
+
+start() {
+        ebegin "Starting ramond"
+        start-stop-daemon --start --background --make-pidfile --pidfile ${pidfile} --exec ${command} -- ${command_args}
+        eend $?
+}
+
+
+stop() {
+        ebegin "Stopping ramond"
+        start-stop-daemon --stop --pidfile ${pidfile} --exec ${command} -- ${command_args}
+        eend $?
+}
