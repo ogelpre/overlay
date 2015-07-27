@@ -1,0 +1,5 @@
+*syncthing-0.11.17 (27 Jul 2015)
+
+  27 Jul 2015;  <bene@gentoo.org> +files/conf.d/syncthing,
+  +files/init.d/syncthing, +metadata.xml, +syncthing-0.11.17.ebuild:
+  Initial import of syncthing
