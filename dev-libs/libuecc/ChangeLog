@@ -1,4 +1,4 @@
 *libuecc-5 (22 Aug 2015)
 
-  22 Aug 2015;  <bene@gentoo.org> +libuecc-5.ebuild, +metadata.xml:
+  22 Aug 2015;  <github@itfriend.de> +libuecc-5.ebuild, +metadata.xml:
   dev-libs/libuecc: initial import

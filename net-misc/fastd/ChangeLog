@@ -1,5 +1,5 @@
 *fastd-17 (22 Aug 2015)
 
-  22 Aug 2015;  <bene@gentoo.org> +fastd-17.ebuild, +files/fastd-0.17.initd,
+  22 Aug 2015;  <github@itfriend.de> +fastd-17.ebuild, +files/fastd-0.17.initd,
   +metadata.xml:
   net-misc/fastd: initial commit
