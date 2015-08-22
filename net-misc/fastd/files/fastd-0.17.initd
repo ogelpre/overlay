@@ -1,0 +1,37 @@
+#!/sbin/runscript
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+VPNDIR=${VPNDIR:-/etc/fastd}
+VPN=${SVCNAME#*.}
+if [ -n "${VPN}" ] && [ ${SVCNAME} != "fastd" ]; then
+	VPNPID="/var/run/fastd.${VPN}.pid"
+else
+	VPNPID="/var/run/fastd.pid"
+fi
+VPNCONF="${VPNDIR}/${VPN}.conf"
+
+depend() {
+	need localmount net
+	use dns
+	after bootmisc
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+
+	start-stop-daemon --start --exec /usr/bin/fastd --pidfile "${VPNPID}" \
+		-- --pid-file "${VPNPID}" --config "${VPNCONF}" --daemon \
+		--syslog-ident "${SVCNAME}"
+	eend $? "Check your logs to see why startup failed"
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+
+	start-stop-daemon --stop --quiet \
+		--exec /usr/sbin/fastd --pidfile "${VPNPID}"
+	eend $?
+}
+
+# vim: set ts=4 :
