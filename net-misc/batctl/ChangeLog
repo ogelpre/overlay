@@ -1,0 +1,4 @@
+*batctl-2015.0 (29 Aug 2015)
+
+  29 Aug 2015;  <bene@gentoo.org> +batctl-2015.0.ebuild, +metadata.xml:
+  net-misc/batctl: update to 2015.0
