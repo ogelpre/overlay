@@ -1,3 +1,8 @@
+*syncthing-0.11.25 (19 Sep 2015)
+
+  19 Sep 2015;  <bene@gentoo.org> +syncthing-0.11.25.ebuild:
+  net-p2p/syncthing: update to 0.11.25
+
 *syncthing-0.11.17 (27 Jul 2015)
 
   27 Jul 2015;  <github@itfriend.de> +files/conf.d/syncthing,
