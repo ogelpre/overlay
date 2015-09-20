@@ -1,13 +1,8 @@
 # Config file for /etc/init.d/syncthing
 
-SYNC_NAME="syncthing"
-SYNC_PIDFILE="/var/run/${SYNC_NAME}.pid"
-
 # If you are going to run syncthing as a user, also uncomment the SYNC_HOME line
 SYNC_USER="syncthing"
 SYNC_GROUP="syncthing"
-SYNC_HOME="/var/lib/${SYNC_USER}"
-#SYNC_HOME="/home/${SYNC_USER}/.config/${SYNC_NAME}"
 
 # Any options you want you can set them here
-SYNC_OPTS="--home=${SYNC_HOME}"
+SYNC_OPTS=""

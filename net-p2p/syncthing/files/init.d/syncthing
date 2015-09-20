@@ -3,13 +3,25 @@
 # Copyright 2014-2015 Jonathan Vasquez <jvasquez1011@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-DISPLAY_NAME="SyncThing"
-
+SYNC_NAME="syncthing"
 SYNC_PATH="/usr/bin"
 SYNC_BINARY="${SYNC_PATH}/${SYNC_NAME}"
+
+INSTANCE=${SVCNAME#*.}
+
+if [ -n "${INSTANCE}" ] && [ ${SVCNAME} != "syncthing" ]; then
+        DISPLAY_NAME="SyncThing.${INSTANCE}"
+        SYNC_PIDFILE="/var/run/${SYNC_NAME}.${INSTANCE}.pid"
+        SYNC_HOME="${SYNC_HOME:-$(/bin/sh -c "echo ~${SYNC_USER}")/.config/${SYNC_NAME}/${INSTANCE}}"
+else
+        DISPLAY_NAME="SyncThing"
+        SYNC_PIDFILE="/var/run/${SYNC_NAME}.pid"
+        SYNC_HOME="${SYNC_HOME:-$(/bin/sh -c "echo ~${SYNC_USER}")/.config/${SYNC_NAME}}"
+fi
+
 SYNC_USER="${SYNC_USER:-syncthing}"
 SYNC_GROUP="${SYNC_GROUP:-syncthing}"
-SYNC_HOME="${SYNC_HOME:-/home/${SYNC_USER}/.config/${SYNC_NAME}}"
+SYNC_OPTS="--home=${SYNC_HOME} ${SYNC_OPTS}"
 
 start() {
 	ebegin "Starting ${DISPLAY_NAME}"
