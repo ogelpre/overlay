@@ -1,3 +1,8 @@
+*syncthing-0.12.17 (08 Feb 2016)
+
+  08 Feb 2016;  <bene@gentoo.org> +syncthing-0.12.17.ebuild:
+  net-p2p/syncthing: update to 0.12.17
+
 *syncthing-0.12.10 (02 Jan 2016)
 
   02 Jan 2016;  <bene@gentoo.org> +syncthing-0.12.10.ebuild:
