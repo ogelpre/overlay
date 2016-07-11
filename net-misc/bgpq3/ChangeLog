@@ -1,0 +1,4 @@
+*bgpq3-0.1.32_rc4 (11 Jul 2016)
+
+  11 Jul 2016;  <bene@gentoo.org> +bgpq3-0.1.32_rc4.ebuild, +metadata.xml:
+  net-misc/bgpq3: 0.1.32_rc4 added
