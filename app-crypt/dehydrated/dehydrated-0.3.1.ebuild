@@ -29,7 +29,6 @@ sys-apps/diffutils
 net-misc/curl
 "
 src_install() {
-	elog "$(ls)"
 	dobin "${PN}"
 
 	insinto /etc/dehydrated

@@ -1,4 +1,7 @@
   25 Sep 2016;  <bene@gentoo.org> dehydrated-0.3.1.ebuild:
+  app-crypt/dehydrated: debugging output removed
+
+  25 Sep 2016;  <bene@gentoo.org> dehydrated-0.3.1.ebuild:
   app-crypt/dehydrated: install config example
 
   25 Sep 2016;  <bene@gentoo.org> dehydrated-0.3.1.ebuild:
