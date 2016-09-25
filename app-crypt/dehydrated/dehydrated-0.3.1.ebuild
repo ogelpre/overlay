@@ -5,7 +5,7 @@
 
 EAPI=5
 
-inherit user systemd
+inherit user
 
 GITHUB_USER="lukas2511"
 GITHUB_REPO="${PN}"
@@ -31,6 +31,11 @@ net-misc/curl
 src_install() {
 	elog "$(ls)"
 	dobin "${PN}"
+
+	insinto /etc/dehydrated
+    doins docs/examples/config
+    doins docs/examples/domains.txt
+
 	dodoc CHANGELOG README.md
     dodoc -r docs
 }
