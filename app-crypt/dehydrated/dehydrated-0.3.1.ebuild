@@ -33,9 +33,9 @@ src_install() {
 	dobin "${PN}"
 
 	insinto /etc/dehydrated
-    doins docs/examples/config
-    doins docs/examples/domains.txt
+	doins docs/examples/config
+	doins docs/examples/domains.txt
 
 	dodoc CHANGELOG README.md
-    dodoc -r docs
+	dodoc -r docs
 }
