@@ -1,0 +1,4 @@
+*batman-adv-2015.2 (16 Oct 2016)
+
+  16 Oct 2016;  <bene@gentoo.org> +batman-adv-2015.2.ebuild, +metadata.xml:
+  net-misc/batman-adv: v2015.2 added
