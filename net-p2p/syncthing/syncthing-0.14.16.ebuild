@@ -1,4 +1,4 @@
-# Copyright 2015-2016 Benedikt Neuffer <ogelpre@itfriend.de>
+# Copyright 2015-2017 Benedikt Neuffer <ogelpre@itfriend.de>
 # Distributed under the terms of the GNU General Public License v2
 
 # Based on ebuild by Jonathan Vasquez <jvasquez1011@gmail.com>
