@@ -1,3 +1,9 @@
+*syncthing-0.14.19 (10 Jan 2017)
+
+  10 Jan 2017;  <bene@gentoo.org> +syncthing-0.14.19.ebuild,
+  -syncthing-0.14.18.ebuild, files/init.d/syncthing:
+  net-p2p/syncthing: update to 0.14.19
+
 *syncthing-0.14.18 (06 Jan 2017)
 
   06 Jan 2017;  <bene@gentoo.org> +syncthing-0.14.18.ebuild,
