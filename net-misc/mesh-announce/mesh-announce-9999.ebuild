@@ -34,5 +34,6 @@ src_install() {
         insinto /usr/local/${PN}
         doins -r neighbours.d
         doins -r statistics.d
+        doins -r nodeinfo.d
 }
 

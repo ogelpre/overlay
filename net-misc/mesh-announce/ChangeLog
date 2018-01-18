@@ -1,6 +1,9 @@
   18 Jan 2018;  <bene@gentoo.org> mesh-announce-9999.ebuild:
   net-misc/mesh-announce: update mesh-announcegit
 
+  18 Jan 2018;  <bene@gentoo.org> mesh-announce-9999.ebuild:
+  net-misc/mesh-announce: update mesh-announcegit
+
 *mesh-announce-9999 (18 Jan 2018)
 
   18 Jan 2018;  <bene@gentoo.org> +mesh-announce-9999.ebuild, +metadata.xml:
