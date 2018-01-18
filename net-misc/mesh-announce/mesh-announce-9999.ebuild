@@ -18,6 +18,7 @@ KEYWORDS="~x86 ~amd64"
 RDEPEND="
         >=dev-lang/python-3
         sys-apps/ethtool
+        sys-apps/lsb-release
 "
 DEPEND="${RDEPEND}
 "
