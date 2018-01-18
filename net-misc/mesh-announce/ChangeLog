@@ -1,0 +1,4 @@
+*mesh-announce-9999 (18 Jan 2018)
+
+  18 Jan 2018;  <bene@gentoo.org> +mesh-announce-9999.ebuild, +metadata.xml:
+  net-misc/mesh-announce: add mesh-announcegit add metadata.xml
