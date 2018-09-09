@@ -1,8 +1,0 @@
-# Config file for /etc/init.d/syncthing
-
-# If you are going to run syncthing as a user, also uncomment the SYNC_HOME line
-SYNC_USER="syncthing"
-SYNC_GROUP="syncthing"
-
-# Any options you want you can set them here
-SYNC_OPTS=""
