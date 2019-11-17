@@ -1,0 +1,69 @@
+diff --git a/src/mod/nat64/Makefile b/src/mod/nat64/Makefile
+index 8bcc9cac..929def05 100644
+--- a/src/mod/nat64/Makefile
++++ b/src/mod/nat64/Makefile
+@@ -2,17 +2,17 @@ MODULES_DIR ?= /lib/modules/$(shell uname -r)
+ KERNEL_DIR ?= ${MODULES_DIR}/build
+ 
+ all:
+-	make -C ${KERNEL_DIR} M=$$PWD JOOL_FLAGS="${JOOL_FLAGS}"
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD JOOL_FLAGS="${JOOL_FLAGS}"
+ modules:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ modules_install:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ install: modules_install
+ 	depmod
+ clean:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ 	rm -f ../common/*.o
+ 	rm -f ../common/nl/*.o
+ 	rm -f ../common/rfc6145/*.o
+ debug:
+-	make all JOOL_FLAGS+=-DDEBUG
++	$(MAKE) all JOOL_FLAGS+=-DDEBUG
+diff --git a/src/mod/siit/Makefile b/src/mod/siit/Makefile
+index 8bcc9cac..929def05 100644
+--- a/src/mod/siit/Makefile
++++ b/src/mod/siit/Makefile
+@@ -2,17 +2,17 @@ MODULES_DIR ?= /lib/modules/$(shell uname -r)
+ KERNEL_DIR ?= ${MODULES_DIR}/build
+ 
+ all:
+-	make -C ${KERNEL_DIR} M=$$PWD JOOL_FLAGS="${JOOL_FLAGS}"
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD JOOL_FLAGS="${JOOL_FLAGS}"
+ modules:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ modules_install:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ install: modules_install
+ 	depmod
+ clean:
+-	make -C ${KERNEL_DIR} M=$$PWD $@
++	$(MAKE) -C ${KERNEL_DIR} M=$$PWD $@
+ 	rm -f ../common/*.o
+ 	rm -f ../common/nl/*.o
+ 	rm -f ../common/rfc6145/*.o
+ debug:
+-	make all JOOL_FLAGS+=-DDEBUG
++	$(MAKE) all JOOL_FLAGS+=-DDEBUG
+diff --git a/src/usr/iptables/Makefile b/src/usr/iptables/Makefile
+index 9e4cebad..089cf2b8 100644
+--- a/src/usr/iptables/Makefile
++++ b/src/usr/iptables/Makefile
+@@ -2,8 +2,8 @@ CFLAGS = -O2 -Wall -I../.. $(shell pkg-config xtables --cflags)
+ XTABLES_SO_DIR = $(shell pkg-config xtables --variable xtlibdir)
+ 
+ all:
+-	make libxt_JOOL_SIIT.so;
+-	make libxt_JOOL.so;
++	$(MAKE) libxt_JOOL_SIIT.so;
++	$(MAKE) libxt_JOOL.so;
+ install:
+ 	mkdir -p ${DESTDIR}${XTABLES_SO_DIR}
+ 	cp *.so ${DESTDIR}${XTABLES_SO_DIR}
