@@ -1,0 +1,27 @@
+#!/sbin/openrc-run
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/sbin/alfred"
+command_args="${alfred_args}"
+
+depend() {
+	need localmount net
+	after bootmisc
+}
+
+#start() {
+#	ebegin "Starting ${SVCNAME}"
+#
+#	start-stop-daemon --start --exec /usr/bin/${SVCNAME} --make-pidfile --pidfile ${SVCNAME}\
+#		-- 
+#	eend $? "Check your logs to see why startup failed"
+#}
+
+#stop() {
+#	ebegin "Stopping ${SVCNAME}"
+#
+#	start-stop-daemon --stop --quiet \
+#		--exec /usr/sbin/fastd --pidfile ${SVCNAME}
+#	eend $?
+#}

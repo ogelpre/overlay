@@ -1,0 +1,10 @@
+*fastd-18 (16 Oct 2016)
+
+  16 Oct 2016;  <bene@gentoo.org> +fastd-18.ebuild, metadata.xml:
+  net-misc/fastd: version bump to v18
+
+*fastd-17 (22 Aug 2015)
+
+  22 Aug 2015;  <github@itfriend.de> +fastd-17.ebuild, +files/fastd-0.17.initd,
+  +metadata.xml:
+  net-misc/fastd: initial commit

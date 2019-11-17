@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>ogelpre@itfriend.de</email>
+        <name>Benedikt Neuffer</name>
+    </maintainer>
+    <use>
+    <flag name="lto">Enable link-time optimization.</flag>
+    <flag name="nacl">Use nacl instead of libsodium.</flag>
+    <flag name="openssl">Enable linking to OpenSSL.</flag>
+    <flag name="alfred-vis">Enable visualization.</flag>
+  </use>
+</pkgmetadata>
