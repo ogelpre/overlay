@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="project">
+    <email>ogelpre@itfriend.de</email>
+    <name>Benedikt Neuffer</name>
+  </maintainer>
+  <use>
+    <flag name="apparmor">Enable AppArmor support</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">lxc/lxc</remote-id>
+  </upstream>
+</pkgmetadata>
