@@ -5,7 +5,7 @@ EAPI=6
 
 inherit cmake-utils eutils
 
-DESCRIPTION="fast is a Fast and Secure Tunneling Daemon"
+DESCRIPTION="fastd is a Fast and Secure Tunneling Daemon"
 HOMEPAGE="https://projects.universe-factory.net/projects/fastd/wiki"
 
 SRC_URI="https://git.universe-factory.net/${PN}/snapshot/${PN}-${PV}.zip"
