@@ -1,5 +1,5 @@
 To use this overlay you first need to configure layman. Once
-you have don this, copy the included overlay.xml file over
+you have done this, copy the included overlay.xml file over
 to /etc/layman/overlays/ogelpre.xml so that layman knows about
 this overlay.
 
