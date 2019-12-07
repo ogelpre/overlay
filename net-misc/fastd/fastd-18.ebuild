@@ -17,16 +17,17 @@ KEYWORDS="~x86 ~amd64"
 IUSE="lto nacl openssl"
 
 RDEPEND="
-		sys-libs/libcap
-		>=dev-libs/libuecc-6
-		!nacl? ( dev-libs/libsodium )
-		openssl? ( dev-libs/openssl:* )
-		dev-libs/json-c
+    sys-libs/libcap
+    >=dev-libs/libuecc-6
+    !nacl? ( dev-libs/libsodium )
+    openssl? ( dev-libs/openssl:* )
+    dev-libs/json-c
 "
-DEPEND="${RDEPEND}
-		dev-ruby/pkg-config
-		>=sys-devel/bison-2.5
-		dev-util/cmake
+DEPEND="
+    ${RDEPEND}
+    dev-ruby/pkg-config
+    >=sys-devel/bison-2.5
+    dev-util/cmake
 "
 
 S="${WORKDIR}/${P}"
@@ -34,26 +35,26 @@ S="${WORKDIR}/${P}"
 src_prepare() {
     eapply_user
 
-	cmake-utils_src_prepare
+    cmake-utils_src_prepare
 
-	tail -n 1 "${S}/README" > "${S}/README.new"
-	mv "${S}/README.new" "${S}/README"
+    tail -n 1 "${S}/README" > "${S}/README.new"
+    mv "${S}/README.new" "${S}/README"
 }
 
 src_configure() {
-	local mycmakeargs=(
-		cmake-utils_use_enable lto LTO
-		cmake-utils_use_enable nacl LIBSODIUM
-		cmake-utils_use_enable openssl OPENSSL
-	)
-	cmake-utils_src_configure
+    local mycmakeargs=(
+        cmake-utils_use_enable lto LTO
+        cmake-utils_use_enable nacl LIBSODIUM
+        cmake-utils_use_enable openssl OPENSSL
+    )
+    cmake-utils_src_configure
 }
 
 src_install() {
-	doman doc/fastd.1
-	dodoc README
-	newinitd "${FILESDIR}/fastd-0.17.initd" fastd
-	keepdir /etc/fastd
+    doman doc/fastd.1
+    dodoc README
+    newinitd "${FILESDIR}/fastd-0.17.initd" fastd
+    keepdir /etc/fastd
 
-	cmake-utils_src_install
+    cmake-utils_src_install
 }
