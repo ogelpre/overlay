@@ -15,12 +15,13 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 RDEPEND=""
-DEPEND="${RDEPEND}
-		dev-util/cmake
+DEPEND="
+    ${RDEPEND}
+    dev-util/cmake
 "
 
 S="${WORKDIR}/${P}"
 
 src_configure() {
-	cmake-utils_src_configure
+    cmake-utils_src_configure
 }
